@@ -21,6 +21,7 @@ function getAverage( array ) {
             sum++;
         }
     })
+    
     return numCounter / sum;
 }
 
