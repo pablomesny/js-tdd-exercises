@@ -1,32 +1,54 @@
-var factorial = require("./factorial");
+const factorial = require("./factorial");
 
-describe("Factorial", function() {
-  test("Factorial", function() {
-    var in1 = 5;
-    var exp1 = 120;
+describe('Given the factorial function', () => {
+    test('given the input 9 it should return 362880 and keep the original one', () => {
+        const input = 9;
+        const expected = 362880;
+        const unchanged = 9;
 
-    var in2 = 9;
-    var exp2 = 362880;
+        const output = factorial(input);
 
-    var in3 = 1;
-    var exp3 = 1;
+        expect(output).toBe(expected);
+        expect(input).toBe(unchanged);
+    })
 
-    var in4 = 0;
-    var exp4 = 1;
+    test('given the input 0 it should return 1 and keep the original one', () => {
+        const input = 0;
+        const expected = 1;
+        const unchanged = 0;
 
-    var in5 = 3;
-    var exp5 = 6;
+        const output = factorial( input );
 
-    var out1 = factorial(in1);
-    var out2 = factorial(in2);
-    var out3 = factorial(in3);
-    var out4 = factorial(in4);
-    var out5 = factorial(in5);
+        expect(output).toBe(expected);
+        expect(input).toBe(unchanged);
+    })
 
-    expect(out1).toEqual(exp1);
-    expect(out2).toEqual(exp2);
-    expect(out3).toEqual(exp3);
-    expect(out4).toEqual(exp4);
-    expect(out5).toEqual(exp5);
-  });
-});
+    test('given the input -1 it should throw an error', () => {
+        const input = -1;
+        expect( () => factorial(input) ).toThrow('invalid input');
+    })
+
+    test('given the input "string" it should throw an error', () => {
+        const input = 'string';
+        expect( () => factorial(input) ).toThrow('invalid input');
+    })
+
+    test('given the input [1, 23, 5] it should throw an error', () => {
+        const input = [1, 23, 5];
+        expect( () => factorial( input ) ).toThrow('invalid input');
+    })
+
+    test('given no input it should throw an error', () => {
+        expect( () => factorial() ).toThrow('invalid input');
+    })
+
+    test('given the input null it should throw an error', () => {
+        const input = null;
+        expect( () => factorial( input ) ).toThrow('invalid input');
+    })
+
+    test('given the input undefined it should throw an error', () => {
+        const input = undefined;
+        expect( () => factorial( input ) ).toThrow('invalid input');
+    })
+})
