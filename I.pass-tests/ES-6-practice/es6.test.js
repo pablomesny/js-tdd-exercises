@@ -23,21 +23,23 @@ test("defaultParameter function should return name if name argument is passed in
 });
 
 test("combineArrays function should combine arr1 and arr2", () => {
+  const arr1 = [1, 2, 3];
+  const arr2 = [4, 5, 6];
+
+
   expect(combineArrays(arr1, arr2)).toEqual([1, 2, 3, 4, 5, 6]);
 });
 
 test("destructuring function should return cyf property of object", () => {
+  const testObj = {
+    cyf: "awesome",
+    test: "100%",
+    learning: "always"
+  };  
+
   expect(destructuring(testObj)).toEqual("awesome");
 });
 
 test("templateString should return a string with the sum of parameter a and b", () => {
   expect(templateString(1, 2)).toEqual("The sum is equal to 3");
 });
-
-const arr1 = [1, 2, 3];
-const arr2 = [4, 5, 6];
-const testObj = {
-  cyf: "awesome",
-  test: "100%",
-  learning: "always"
-};
